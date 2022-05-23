@@ -1,0 +1,42 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    padding: 0px;
+    margin: auto;
+    width: 900px;
+    height: 500px;
+    background-image: url("https://us.123rf.com/450wm/ihorsw/ihorsw1707/ihorsw170700061/82258390-mesa-de-ping-pong-plana-vista-superior-del-campo-de-tenis-de-mesa-con-el-vector-de-plantilla-de-l%C3%ADne.jpg");
+    border: 5px dashed brown;
+}
+#player{
+    background-color: black;
+    border:4px;
+    width: 30px;
+    height: 40px;
+    border-radius: 29px;
+    position: absolute;
+    transition: all 0.3s;
+}
+.pointer{
+    background-color: blue;
+    background-image: none;
+    height: 40px;
+    margin-top: 30px;
+    border-bottom: 0px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0px;
+}
+body{
+    background-color: blueviolet;
+}
+h4, h1{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}

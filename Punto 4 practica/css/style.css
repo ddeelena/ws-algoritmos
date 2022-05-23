@@ -1,0 +1,151 @@
+
+*{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+body{
+    background-image: url('https://okdiario.com/img/2021/11/25/franki-chamaki-ivfp_yxzuyq-unsplash11-655x368.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+h1{
+    font-size: 60px;
+    font-style: italic;
+    text-align: center;
+    border: 10px solid salmon;
+    background-color: lightpink ;
+    border-radius: 20px;
+}
+.HUEVOS{
+    padding:0;
+    width: 1000px;
+    height: 500px;
+    /*position: absolute;*/
+    margin-left: 400px ;
+    margin-right: 200px;
+    border: 10px solid black;
+    display: grid;
+    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+    grid-gap: 5px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+#Huevo{
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+#imgH {
+    text-align: center;
+    width: 400px;
+}
+img{
+    margin-top: 50px;
+    align-self: center;
+    width: 350px;
+    height: 350px;
+}
+.clearflix{
+    clear: both;
+}
+
+
+section,h3,input{
+    background-color: #48C9B0;
+}
+h2{
+    background-color: azure;
+}
+.PAN{
+    padding:0;
+    width: 1000px;
+    height: 500px;
+    /*position: absolute;*/
+    margin-left: 400px ;
+    margin-right: 200px;
+    border: 10px solid black;
+    display: grid;
+    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+    grid-gap: 5px;
+    margin-bottom: 100px;
+}
+#Pan{
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+#imgP {
+    text-align: center;
+    width: 400px;
+}
+.LECHE {
+    padding:0;
+    width: 1000px;
+    height: 500px;
+    /*position: absolute;*/
+    margin-left: 400px ;
+    margin-right: 200px;
+    border: 10px solid black;
+    display: grid;
+    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+    grid-gap: 5px;
+    margin-bottom: 100px;
+}
+#Leche{
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+#imgL {
+    text-align: center;
+    width: 400px;
+}
+.FRUTAS{
+    padding:0;
+    width: 1000px;
+    height: 500px;
+    /*position: absolute;*/
+    margin-left: 400px ;
+    margin-right: 200px;
+    border: 10px solid black;
+    display: grid;
+    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+    grid-gap: 5px;
+    margin-bottom: 100px;
+}
+#Fruta{
+    text-align: center;
+    height: 500px;
+    width: 600px;
+}
+#imgF {
+    text-align: center;
+    width: 400px;
+}
+ #descuento:hover, #confirmacion:hover{
+    background-color: greenyellow;
+    animation: pulsar 1s ease-in-out;
+}
+#descuento, #confirmacion{
+    background: black;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 100px;
+}
+::placeholder{
+    background-color: #070707;
+    color: #CACFD2 ;
+}
+#final, #rebaja{
+    text-align: center;
+<<<<<<< HEAD
+
+=======
+>>>>>>> a6af508 (Merge branch 'master' of https://github.com/ddeelena/ws-algoritmos)
+}
+

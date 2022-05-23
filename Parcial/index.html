@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de notas</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="todo">
+        <div class="contenedor" id="texto">
+            <div id="titulo">
+                <h1>Hola, bienvenido al sistema de notas !!!</h1>
+            </div>
+            <div id="contenido">
+                <h3>En este sistema podras ingresar las notas de tus alumnos</h3>
+                <ul>
+                    <li>Conocer el promedio de los estudiantes</li>
+                    <li>Mostrar los estudiantes con sus notas </li>
+                    <li>conocer la notas más alta y quienes la obtuvieron</li>
+                    <li>Buscar en tu base de datos a un estudiante en especial</li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor" id="ingreso">
+            <label for="numuser"> <b>Cuantos alumnos son:</b></label>
+            <input type="number" id="numuser" placeholder="Cuantos datos va a ingresar">
+            <button id="ingresar">Ingresar datos </button><br> <br> <br>
+        </div>
+        <div class="contenedor" id="opciones">
+            <button id="mostrarD"> Mostrar Datos</button>
+            <button id="buscar">Buscar un dato</button>
+            <button id="todos">Mostrar todos los estudiantes</button>
+        </div>
+        <div>
+            <ul class="contenerdor" id="mostrar">
+            
+            </ul>
+        </div>
+    
+    </div>
+   
+    <script src="js/java.js"></script>
+</body>
+</html>
