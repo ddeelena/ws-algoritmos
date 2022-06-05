@@ -1,3 +1,8 @@
+//Mi aplicativo para el proyecto final quiero que sea un sistema para una papeleria 
+//con dos secciones, una primera donde los usuarios puedan hacer compras y/o sacar turnos
+//para poder que esta sea más rapida, y otra seccion donde el administrador pueda hacer
+//el inventario más o menos en este aplicativo, así sería tanto para el cliente como para 
+//el administrador
 if(localStorage.getItem("Persona")!=null){
     alert("Bienvenid@ a tu inventario "+localStorage.getItem("usuario"));
   }
