@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap');
+ 
+ #botones {
+    position: absolute;
+    display:flexbox;
+   margin-top: 10px;
+}
+#todo #mostrar {
+    clear: both;
+    position: relative;
+    width: 100%;
+    background-color: #A4EAE2;
+    padding: 20px 10px;
+    border-radius: 20px;
+    border: 3px solid black;
+    font-family: 'Nuosu SIL', serif;
+    align-content: center;
+    text-align: center;
+    overflow: scroll;
+}
+button{
+    text-decoration: none;
+    border: none;
+    background-color:#F3C149 ;
+    border-radius: 6px;
+}
+#todo{
+    border: 1px solid  palevioletred;
+    width: 100%;
+    position: relative;
+    top : 4px;
+    margin: 0px;
+    padding: 0px;
+    background-color: aliceblue;
+    font-family: 'Nuosu SIL', serif;
+}
+#todo header {
+    margin-bottom: 5px;
+    height: 120px;
+    padding: 25px 20px;
+    background-color: #0f0d10 ;
+    color: #bbb;
+    border-radius: 1em;
+}
+#todo header h1{
+    text-align: center;
+    word-break: break-all;
+}
+#crear{
+    background-color: #e3a5db;
+    border: 10px solid black;
+    height: 600px;
+    position: relative;
+    width: 70%;
+    float: left;
+    align-content: center;
+    padding: 50px 30px;
+}
+#todo aside{
+    border: 5px solid black;
+    position: relative;
+    border-left: 5px black;
+    height: 600px;
+    width: 30%;
+    float: right;
+    align-content: center;
+    padding: 50px 20px;
+}
+#todo footer{
+    border-radius: 10px;
+    clear: both;
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    padding: 10px;
+    color: white;
+}
+@media  screen and (max-width: 1000px) {
+    #todo{
+        padding: 0;
+        width: auto;
+    }
+    #crear{
+        width: auto;
+        float: none;
+        margin: 0px;
+    }
+    #todo aside{
+        width: auto;
+    }
+    #todo footer{
+        width: 100%;
+    }
+    #todo #mostrar{
+        width: auto;
+        padding: 0;
+    }
+}

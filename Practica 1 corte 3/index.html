@@ -6,56 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INVENTARIO TIENDA</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="p-3 mb-2 bg-info text-dark" class="text-center">
-    <div>
-        <h1>Bienvenido a la tienda</h1>
-    </div>
-    <div>
-        <label for="tipoProducto">Categoría:</label>
-        <input type="text" id="categoria"placeholder="ingrese el nombre de la categoria">
-        <button id="crearCategoria" class="btn btn-warning">CREAR</button><br>
-    </div>
-    <div>
-        <label for="categoria">Escoja la categoria</label>
-        <select name="categoria" id="opciones" class="form-select" aria-label="Default select example"></select>
-    </div>
-    <div>
-        <label for="produtos">Ingrese el nombre del producto</label>
-        <input type="text" name="productos" id="producto" class="form-control"><br>
-        <label for="precio">Ingrese el precio del producto</label>
-        <input type="text" name="precio" id="precio" class="form-control"><br>
-        <label for="cantidad">Ingrese cuanta cantidad  hay del producto</label>
-        <input type="number" name="cantidad" id="cantidad" class="form-control"><br>
-    </div>
-    <div>
-        <button id="agregarInicio" class="btn btn-warning">Agregar al inicio</button>
-        <button id="newProducto" class="btn btn-warning">Agregar al final</button><br><br>
-        <label for="saberCategoria">Click aquí, productos por categoria</label>
-        <button id="saberCategoria" name="saberCategoria" class="btn btn-warning">Conocer productos</button><br><br>
-    </div>
-    <div>
-        <label for="aumDis">Ingrese el nombre del producto con el que 
-            va a realizar la acción
-        </label>
-        <input  type="text" id="productoAD" name="aumDis"class="form-control">
-        <button id="buscar" name="buscar" class="btn btn-warning">buscar</button><br>
-        <div>
-            <label for="aumentar">
-                Hunda + para aumentar la cantidad y - para disminuir la cantidad
-            </label>
-            <button id="aumentar" name="mas" class="btn btn-dark">+</button>
-            <button id="disminuir"  name="menos" class="btn btn-dark">-</button><br>
-        </div>
-        <label for="eliminar">Click para eliminar el producto</label>
-        <button id="eliminar" name="eliminar" class="btn btn-warning">Eliminar</button><br><br>
-        <label for="ordenar">Click para ordenar e imprimir en orden</label>
-        <button id="ordenar" name="ordenar" class="btn btn-warning">Ordenar</button>
-    </div>
-    <div id="mostrar">
+    <div id="todo">
+        <header>
+            <h1>Bienvenido al inventario de la  tienda</h1>
+        </header>
+        <section id="crear">
+            <h3>Ingresa el nombre de la categoria</h3><br>
+            <div class="categoria">
+                <label for="tipoProducto">Categoría:</label>
+                <input type="text" id="categoria"placeholder="ingrese el nombre de la categoria">
+                <button id="crearCategoria">CREAR</button><br><br>
+            </div>
+            <h4>Ingresa los datos del producto</h4><br>
+            <div class="producto">
+                <label for="categoria">Escoja la categoria</label>
+                <select name="categoria" id="opciones" ></select><br><br>
+                <label for="produtos">Ingrese el nombre del producto</label>
+                <input type="text" name="productos" id="producto" ><br><br>
+                <label for="precio">Ingrese el precio del producto</label>
+                <input type="text" name="precio" id="precio" ><br><br>
+                <label for="cantidad">Ingrese cuanta cantidad  hay del producto</label>
+                <input type="number" name="cantidad" id="cantidad" ><br><br>
+                <div class="botones">
+                    <button id="newProducto" >Agregar al final</button>
+                    <button id="agregarInicio" >Agregar al inicio</button><br><br>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <h3>Ingresa el nombre del producto que deseas buscar, eliminar o cambiar la cantidad</h3><br>
+            <label for="aumDis">Ingrese el nombre del producto</label>
+            <input  type="text" id="productoAD" name="aumDis">
+                <button id="buscar" name="buscar">buscar</button><br><br>
+                <label for="saberCategoria">Click aquí, productos por categoria</label>
+                <button id="saberCategoria" name="saberCategoria">Conocer productos</button><br><br>
+                <label for="aumentar">
+                    Hunda + para aumentar la cantidad y - para disminuir la cantidad
+                </label>
+                <div class="botones">
+                    <button id="aumentar" name="mas" class="btn btn-dark">+</button>
+                    <button id="disminuir"  name="menos" class="btn btn-dark">-</button><br><br>
+                </div>
 
-    </div>
+                <label for="eliminar">Click para eliminar el producto</label>
+                <button id="eliminar" name="eliminar">Eliminar</button><br><br>
+                <label for="ordenar">Click para ordenar e imprimir en orden</label>
+                <button id="ordenar" name="ordenar">Ordenar</button>
+            </aside>
+        <div id="mostrar"></div>
+        <footer>
+            <p align="center">Derly Elena Quejada 2022</p>
+        </footer>
+        
     </div>
     <script src="js/main.js"></script>
 </body>

@@ -21,6 +21,9 @@ let categorias = [];
 let opcion ="";
 let productos = [];
 let categoriax;
+var h3 = document.createElement("h3");
+h3.innerHTML= `Aqui se mostraran los datos que necesites`;
+mostrar.appendChild(h3)
 
 crearCategoria.onclick = function(){
     crear();
@@ -32,28 +35,49 @@ agregarInicio.onclick = function(){
     productos.unshift(produc());
 }
 saberCategoria.onclick = function(){
+    while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     buscarCategoria();
     alert(`Hay ${productos.length} en el inventario`);
-    totalPrecio()
+    totalPrecio();
+    totalCategoria();
 }
 disminuir.onclick = function(){
+    while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     let productoAd = document.getElementById("productoAD").value;
     disminuirP(productoAd);
 };
 aumentar.onclick = function(){
+    while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     let productoAd = document.getElementById("productoAD").value;
     aumentarP(productoAd); 
 }
 eliminar.onclick = function(){
+    while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     let productoAd = document.getElementById("productoAD").value;
     eliminarP(productoAd)
 }
 buscar.onclick = function(){
+    while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     let productoAd = document.getElementById("productoAD").value;
     buscarNombre(productoAd);
 }
 ordenar.onclick = function(){
+     while (mostrar.firstChild) {
+        mostrar.removeChild(mostrar.firstChild);
+      }
     ordenarP();
+  
+
 }
 function crear (){
     let categoria = document.getElementById("categoria").value
@@ -81,25 +105,35 @@ function produc(){
 
 
 function buscarCategoria (){
-    let conte =0;
     for (let k=0; k<categorias.length;k++){
      categoriax = productos.filter(produTotal => produTotal.categoria === categorias[k]);
      var h3 = document.createElement("h3");
-     h3.innerHTML= `hay ${categoriax.length} productos en la categoria ${categorias[k]}<br>`
+     h3.innerHTML= `Hay ${categoriax.length} producto(s) en la categoria ${categorias[k]}<br>`
      mostrar.appendChild(h3)
-     console.log(`hay ${categoriax.length} productos en la categoria ${categorias[k]}<br>`);
     }
 }
 
 function totalPrecio(){
-    let cont =0;
-    productos.forEach(object =>{object.precio
-            cont += object.precio;
-    });
+   let  total =  productos.reduce((acum,cont) =>{
+            return acum+=(cont.precio*cont.cantidad)
+    },0);
     var h3 = document.createElement("h3");
-    h3.innerHTML= `El total de los precios ${cont}`;
+    h3.innerHTML= `El total de los precios ${total}`;
     mostrar.appendChild(h3)
-    console.log(cont)
+    console.log(total)
+    
+}
+function totalCategoria(){
+    let cont;
+    categorias.forEach(categoria=>{
+        cont =0;
+        productos.forEach(obj => {
+            obj.categoria == categoria ? cont+=(obj.precio*obj.cantidad) : cont+=0
+        });
+        var h3 = document.createElement("h3");
+        h3.innerHTML= `El total de la categoria ${categoria} es  ${cont}`;
+        mostrar.appendChild(h3)
+    })
 }
 function disminuirP(producto){
    let  elementIndex = productos.findIndex((produTotal=> produTotal.producto == producto));
@@ -144,13 +178,11 @@ function buscarNombre(buscado){
 }
 function ordenarP (){
     let orden = [];
-    for (let i = 0; i < productos.length; i++){
-        orden.push(productos[i].producto)
-    }
-     let alfa = orden.sort();
+    orden = productos.map(producto => producto.producto)
+    let alfa = orden.sort();
     var h3 = document.createElement("h3");
-        h3.innerHTML= `Los productos son: `+ alfa;
-        mostrar.appendChild(h3)
+    h3.innerHTML= `Los productos son: `+ alfa;
+    mostrar.appendChild(h3)
 }
 function eliminarP (producto){
     let productoBuscado = productos.findIndex(produTotal=> produTotal.producto == producto);
