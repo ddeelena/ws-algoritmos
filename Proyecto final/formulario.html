@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="css/imagenes/Icono.png">
+    <title>Papeleria Derly/carrito</title>
+</head>
+<body>
+        <header>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+              <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="css/imagenes/inicio.png" width="20" height="20" alt="Eniun">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></svg>
+                <strong>Inicio</strong>
+              </a>
+              <button id="menu"class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-hidden="true"data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+        </header>
+    
+    <form class="row g-3 needs-validation was-validated" novalidate="">
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="validationCustom01"  required="">
+        <div class="valid-feedback">
+          valido.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="validationCustom02" required="">
+        <div class="valid-feedback">
+          Validos.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustomUsername" class="form-label">Correo Electronicos</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+          <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
+          <div class="invalid-feedback">
+            Por favor verifica que este correcto.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Direccion</label>
+        <input type="text" class="form-control" id="validationCustom03" required="">
+        <div class="invalid-feedback">
+          Por favor verifica tu direccion.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">Municipio</label>
+        <select class="form-select" id="validationCustom04" required="">
+          <option selected disabled value="">Ninguna</option>
+          <option>Armenia</option>
+        </select>
+        <div class="invalid-feedback">
+          Por favor selecciona un municipio.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Numero telefonico</label>
+        <input type="number" class="form-control" id="validationCustom05" required="">
+        <div class="invalid-feedback">
+          Por favor revisa que esten todos los numeros.
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom05" class="form-label"> otro Numero telefonico</label>
+        <input type="number" class="form-control" id="validationCustom05">
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Numero identidad</label>
+        <input type="number" class="form-control" id="validationCustom05" required="" placeholder="Cedula de ciudadania">
+        <div class="invalid-feedback">
+          Por favor revisa que esten todos los numeros.
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+          <label class="form-check-label" for="invalidCheck">
+            Acepto terminos y condiciones
+          </label>
+        <div class="invalid-feedback">
+            Debes Aceptar los terminos y condiciones.
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-dark" id="finalizar" onclick="location.href='carrito.html'">Atrás</button>
+        <button class="btn btn-primary" type="submit" onclick="location.href='index.html'">Suguiente</button>
+
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
