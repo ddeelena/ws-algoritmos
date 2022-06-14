@@ -1,17 +1,12 @@
 //principal 
 //botones añadir productoss
 
-
-let añadir = document.getElementsByClassName("btn btn-sm btn-outline-secondary");
-añadir.onclick = function(){
-    //let producto = document.getElementById("")
-    añadirP()
-}
-function añadirP(){
-    //let producto = document.getElementById("");
-    if(usuario.tipo=="admin"){
-        document.getElementById("").style
-    }
+let carrito =[];
+function añadirP(boton){
+  let compra = boton.id;
+  carrito.push(compra);
+  console.log(carrito)
+  total();
 }
 let productos = [];
 async function cargarinfo (){
@@ -25,6 +20,15 @@ console.log(productos);
 getProductos();
 crear();
 let guardar = document.getElementById("todoProductos")
+function total(){
+  let cont =0;
+  carrito.forEach(categoria=>{
+      productos.forEach(obj => {
+          obj.id == categoria ? cont+=(obj.precio) : cont+=0
+      });
+  })
+  console.log(cont);
+}
 
  function crear(){
     let produc = document.createElement("div");
@@ -50,3 +54,29 @@ let guardar = document.getElementById("todoProductos")
  }
 productos.forEach(item=>{
 console.log(item)})
+
+function finalizarCompra(){
+  if(descuent>1){
+      montoT= totalTt - descuent;
+      alert (`El total a pagar es ${totalTt} y con el descuento de ${descuent}, te queda en ${montoT}`);
+  }else{
+      montoT= totalTt;
+      alert(`El total a pagar es ${montoT}`);
+  }
+}
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+function confirmar() {
+  finalizarCompra();
+}
+
+function cancelar(event) {
+  alert( "Cancelaste la finalización de la compra");
+} 
+  confirmacion.onclick= function(){
+  ask("Quieres finalizar la compra", confirmar, cancelar);
+} 
