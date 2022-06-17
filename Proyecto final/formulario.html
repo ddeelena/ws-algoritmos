@@ -10,20 +10,36 @@
     <title>Papeleria Derly/carrito</title>
 </head>
 <body>
-        <header>
-          <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-              <a href="index.html" class="navbar-brand d-flex align-items-center">
-                <img src="css/imagenes/inicio.png" width="20" height="20" alt="Eniun">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></svg>
-                <strong>Inicio</strong>
-              </a>
-              <button id="menu"class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-hidden="true"data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <img src="css/imagenes/inicio.png" width="20" height="20" alt="Eniun">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"></svg>
+          <strong>Inicio</strong>
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Administrador
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="administrador.html">INICIAR SESION</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
-        </header>
+        </nav>
+      </div>
+    </div>
+  </header>
     
     <form class="row g-3 needs-validation was-validated" novalidate="">
       <div class="col-md-4">
@@ -75,12 +91,8 @@
         </div>
       </div>
       <div class="col-md-3">
-        <label for="validationCustom05" class="form-label"> otro Numero telefonico</label>
-        <input type="number" class="form-control" id="validationCustom05">
-      </div>
-      <div class="col-md-3">
         <label for="validationCustom05" class="form-label">Numero identidad</label>
-        <input type="number" class="form-control" id="validationCustom05" required="" placeholder="Cedula de ciudadania">
+        <input type="number" class="form-control" id="validationCustom07" required="" placeholder="Cedula de ciudadania">
         <div class="invalid-feedback">
           Por favor revisa que esten todos los numeros.
         </div>
@@ -97,9 +109,10 @@
         </div>
       </div>
       <div class="col-12">
-        <button type="button" class="btn btn-dark" id="finalizar" onclick="location.href='carrito.html'">Atrás</button>
-        <button class="btn btn-primary" type="submit" onclick="location.href='index.html'">Suguiente</button>
+        <button type="button" class="btn btn-dark"  onclick="location.href='carrito.html'">Atrás</button>
+        <button class="btn btn-primary" type="submit" id="finalizar" >Suguiente</button>
       </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="javascript/usuario.js"></script>
   </body>

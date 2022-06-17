@@ -1,154 +1,117 @@
-[
-    {
-     "name": "colores",
-     "precio": 12000,
-     "cantidad": 37,
-     "categoria": "escribir",
-     "foto": "css/imagenes/colores.png",
-     "id": "colores"
-    },
-    {
-     "name": "lapiz",
-     "precio": 800,
-     "cantidad": 50,
-     "categoria": "escribir",
-     "foto": "css/imagenes/lapiz.png",
-     "id": "lapiz"
-    },
-    {
-     "name": "lapiceroffi",
-     "precio": 1000,
-     "cantidad": 74,
-     "categoria": "escribir",
-     "foto": "css/imagenes/lapicero.png",
-     "id": "lapiceroffi"
-    },
-    {
-     "name": "cajalapicero",
-     "precio": 11500,
-     "cantidad": 86,
-     "categoria": "escribir",
-     "foto": "css/imagenes/lapiceros.png",
-     "id": "cajalapicero"
-    },
-    {
-     "name": "Lapicero Morado",
-     "precio": 1200,
-     "cantidad": 80,
-     "categoria": "escribir",
-     "foto": "css/imagenes/lapiceromorado.png",
-     "id": "lapicerofaberm"
-    },
-    {
-     "name": "Lapicero Rosado",
-     "precio": 1200,
-     "cantidad": 40,
-     "categoria": "escribir",
-     "foto": "css/imagenes/lapicerorosa.png#",
-     "id": "lapicerofaber"
-    },
-    {
-     "name": "Borrador",
-     "precio": 500,
-     "cantidad": 36,
-     "categoria": "escribir",
-     "foto": "css/imagenes/borrador.png",
-     "id": "borrador"
-    },
-    {
-     "name": "sacapuntas",
-     "precio": 500,
-     "cantidad": 18,
-     "categoria": "escribir",
-     "foto": "css/imagenes/sacapuntas.png",
-     "id": "sacapuntas"
-    },
-    {
-     "name": "caja",
-     "precio": 8000,
-     "cantidad": 86,
-     "categoria": "escribir",
-     "foto": "css/imagenes/caja.png",
-     "id": "caja"
-    },
-    {
-     "name": "Carpeta Carton",
-     "precio": 800,
-     "cantidad": 39,
-     "categoria": "escribir",
-     "foto": "css/imagenes/carpetacarton.png",
-     "id": "carpecarton"
-    },
-    {
-     "name": "Cartulina",
-     "precio": 800,
-     "cantidad": 90,
-     "categoria": "papeles",
-     "foto": "css/imagenes/cartulinas.png",
-     "id": "cartulina"
-    },
-    {
-     "name": "Foami",
-     "precio": 900,
-     "cantidad": 51,
-     "categoria": "papeles",
-     "foto": "css/imagenes/foamis.png",
-     "id": "foami"
-    },
-    {
-     "name": "Carpeta Plastica",
-     "precio": 1500,
-     "cantidad": 83,
-     "categoria": "papeles",
-     "foto": "css/imagenes/carpeta.png",
-     "id": "carpetaP"
-    },
-    {
-     "name": "Cuaderno",
-     "precio": 3000,
-     "cantidad": 96,
-     "categoria": "papeles",
-     "foto": "css/imagenes/cuaderno.png",
-     "id": "cuaderno"
-    },
-    {
-     "name": "Cuadernillo 50",
-     "precio": 1800,
-     "cantidad": 10,
-     "categoria": "papeles",
-     "foto": "css/imagenes/cuadernos.png",
-     "id": "cuadernillo"
-    },
-    {
-     "name": "Pliego Cartulina",
-     "precio": 1500,
-     "cantidad": 39,
-     "categoria": "papales",
-     "foto": "css/imagenes/pliego.png",
-     "id": "cartulinaP"
-    },
-    {
-     "name": "Pinturas Acrilicas",
-     "precio": 9500,
-     "cantidad": 57,
-     "categoria": "decoracion",
-     "foto": "css/imagenes/pinturasacri.png",
-     "id": "pinturaA"
-    },
-    {
-     "name": "Pinturas pequeñas para niños",
-     "precio": 4000,
-     "cantidad": 1,
-     "categoria": "decoracion",
-     "foto": "css/imagenes/pinturas.png",
-     "id": "pinturaNs"
-    },
-    {
-     "name": "Plastilina Pequeña",
-     "precio": 3000,
-     "cantidad": 30,
-     "categoria": "decoracion",
-     "foto": "css/imagenes/plastilina.png",
-     "id": "plastilina"
+
+let boton = document.getElementById("confirmar");
+let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
+let agregarNuevo = document.getElementById("agregraNuevo");
+let conocer = document.getElementById("conocerProducto");
+let productoNuevo = document.getElementById("newProducto");
+let conocerProducto = document.getElementById("conocerProducto");
+let buscar = document.getElementById("buscar");
+let productos =[];
+let retroceder = document.getElementById("retroceder");
+let user = `dquejada1028@cue.edu.co`;
+let contra = `hola`;
+document.getElementById("agregarProducto").style.visibility = "hidden";
+document.getElementById("hacer").style.visibility="hidden";
+document.getElementById("mostrarProducto").style.visibility ="hidden";
+//document.getElementById("")
+conocerProducto.onclick = function(){
+    document.getElementById("mostrarProducto").style.visibility ="visible";
+    document.getElementById("hacer").style.visibility="hidden";
+    document.getElementById("agregarProducto").style.visibility = "hidden";
+}
+buscar.onclick = function(){
+    getProductos();
+}
+retroceder.onclick = function(){
+    document.getElementById("hacer").style.visibility = "visible";
+    document.getElementById("agregarProducto").style.display ="none";
+}
+productoNuevo.onclick = function(){
+    crearCategoria();
+    añadirP();
+}
+boton.onclick = function(event){
+    event.preventDefault();
+    mostrarOpciones()
+}
+agregarNuevo.onclick = function(event){
+    event.preventDefault();
+    document.getElementById("hacer").style.visibility ="hidden";
+    document.getElementById("agregarProducto").style.visibility = "visible";
+}
+ function mostrarOpciones(){
+    let usuario = document.getElementById("floatingInput").value;
+    let contraseña = document.getElementById("floatingPassword").value;
+    if( usuario== user && contraseña==contra){
+        document.getElementById("hacer").style.visibility = "visible"; 
+        document.getElementById("entrar").style.display = "none";
+    }else alert ("no se pudo")
+
+ }
+function crearCategoria(){
+    let categoria = document.getElementById("categoria").value
+    const  selection = document.createElement("option");
+    if (categoria != null){
+        //categorias.push(categoria);
+        selection.innerHTML= categoria;
+        opciones.appendChild(selection);
+    }else{
+        categoria ="lapiz";
+        selection.innerHTML= categoria;
+        opciones.appendChild()
     }
-   ]
+}
+function añadirP(){
+    opcion = opciones.options[opciones.selectedIndex].text;
+    let producto = (document.getElementById("producto")).value
+    let precio = parseInt(document.getElementById("precio").value)
+    let cantidad = parseInt(document.getElementById("cantidad").value)
+    let foto = document.getElementById("foto").value;
+    let id = document.getElementById("id").value;
+    let  produTotal ={
+        "name":producto,
+        "precio": precio,
+        "cantidad": cantidad,
+        "foto": foto,
+        "categoria": opcion,
+        "id": id
+    }
+    console.log(produTotal)
+    enviarBaseDeDatos(produTotal);
+}
+function enviarBaseDeDatos(produTotal){
+    console.log("subiendo")
+    fetch(url+"productos",{
+        method:'POST',
+        body:JSON.stringify(produTotal),
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
+}
+function mostrar(){
+    let verProductos = document.getElementById("verProducto");
+    opcion = verProductos.options[verProductos.selectedIndex].text;
+    let producto = productos.find(produTotal=> produTotal.name == opcion);
+    let div =  document.getElementById("container");
+    console.log(producto);
+    let cadena = `
+    Categoria: ${producto.categoria}<br>
+    Nombre: ${producto.name}<br>
+    Precio: ${producto.precio}<br>
+    Cantidad existente: ${producto.cantidad}<br>
+    Id: ${producto.id}`;
+    var h3 = document.createElement("h3");
+    h3.innerHTML= cadena ;
+    div.appendChild(h3);
+
+}
+async function cargarinfo (){
+    let respuesta = await fetch ("https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/productos");
+    return respuesta.json();
+}
+async function getProductos(){
+productos= await cargarinfo();
+console.log(productos);
+mostrar();
+}

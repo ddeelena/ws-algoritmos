@@ -119,7 +119,7 @@ function buscarCategoria (){
 }
 
 function totalPrecio(){
-   let  total =  productos.reduce((acum,cont) =>{
+     let total =  productos.reduce((acum,cont) =>{
             return acum+=(cont.precio*cont.cantidad)
     },0);
     var h3 = document.createElement("h3");
