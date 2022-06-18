@@ -1,21 +1,23 @@
 //principal 
 //botones añadir productoss
 //let guardar = document.getElementById("todoProductos");
+//let botones = document.getElementsByClassName("btn btn-sm btn-outline-secondary");
 window.onload=getProductos();
 let finalizar = document.getElementById("finalizar");
 let carrito =[];
 let productos = [];
-let boton = document.getElementsByTagNameNS("btn btn-sm btn-outline-secondary","main");
+//let boton = document.getElementsByTagNameNS("btn btn-sm btn-outline-secondary","main");
 finalizar.onclick = function(){
   añadirP()
 }
-function añadirP(){
-  //let compra = boton.id;
-   let carro = productos.find(producto=> producto.id == "colores")
+
+function añadirP(boton){
+  let compra = boton;
+  let carro = productos.find(producto=> producto.id == compra)
   carrito.push(carro);
   console.log(carrito)
   total();
-  mostrarCarrito();
+  //mostrarCarrito();
 }
 
 async function cargarinfo (){
@@ -36,7 +38,7 @@ function total(){
           obj.id == categoria ? cont+=(obj.precio) : cont+=0
       });
   })
-  console.log(cont);
+  //console.log(cont);
 }
 
 function mostrarProductos(){
@@ -55,7 +57,7 @@ function mostrarProductos(){
   let div = document.createElement("div");
   div.setAttribute("class","col");
   let divCard= document.createElement("div");
-  divCard.setAttribute("class","card shadow-sm");
+  divCard.setAttribute("class","card shadow-sm organizar");
   divCard.setAttribute("width","200");
   divCard.setAttribute("height","400");
   let img= document.createElement("img");
@@ -78,7 +80,8 @@ function mostrarProductos(){
   button.type = "button";
   button.innerHTML = "Agregar"
   button.setAttribute("class","btn btn-sm btn-outline-secondary");
-  button.setAttribute("id","plastilina");
+  button.setAttribute("id",producto.id);
+  button.onclick = añadirP;
   contenedor.appendChild(div);
   div.appendChild(divCard); 
   divCard.appendChild(img);
@@ -122,8 +125,8 @@ function mostrarCarrito(){
         <input type="number" min="1" value=${item.cantidad} class="input__elemento">
         <button class="delete btn btn-danger">x</button>
       </td>
-      `
+      
       new_tr.innerHTML= content;
-      tbody.appendChild(new_tr);
+      tbody.appendChild(new_tr);`
   })
 }
