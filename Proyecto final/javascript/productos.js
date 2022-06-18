@@ -2,34 +2,29 @@
 //botones añadir productoss
 //let guardar = document.getElementById("todoProductos");
 //let botones = document.getElementsByClassName("btn btn-sm btn-outline-secondary");
-window.onload=getProductos();
-let finalizar = document.getElementById("finalizar");
+//window.onload=getProductos();
+
 let carrito =[];
 let productos = [];
 //let boton = document.getElementsByTagNameNS("btn btn-sm btn-outline-secondary","main");
-finalizar.onclick = function(){
-  añadirP()
-}
 
-function añadirP(boton){
-  let compra = boton;
-  let carro = productos.find(producto=> producto.id == compra)
-  carrito.push(carro);
-  console.log(carrito)
-  total();
-  //mostrarCarrito();
-}
 
-async function cargarinfo (){
+
+
+
+
+ export async function cargarinfo (){
     let respuesta = await fetch ("https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/productos");
     return respuesta.json();
 }
-async function getProductos(){
+ export async function getProductos(){
 productos= await cargarinfo();
 console.log(productos);
 mostrarProductos();
 }
-
+export function hola (){
+  console.log("hola");
+}
 //crear();
 function total(){
   let cont =0;
@@ -41,7 +36,7 @@ function total(){
   //console.log(cont);
 }
 
-function mostrarProductos(){
+ export function mostrarProductos(){
   let containerProductos= document.getElementById("productosContainer")
   let divContainer = document.createElement("div");
   divContainer.setAttribute("class","album py-5 bg-light")
@@ -81,7 +76,7 @@ function mostrarProductos(){
   button.innerHTML = "Agregar"
   button.setAttribute("class","btn btn-sm btn-outline-secondary");
   button.setAttribute("id",producto.id);
-  button.onclick = añadirP;
+  button.setAttribute('onclick','añadirP("'+producto.id+'")');
   contenedor.appendChild(div);
   div.appendChild(divCard); 
   divCard.appendChild(img);

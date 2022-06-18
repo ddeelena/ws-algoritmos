@@ -41,7 +41,7 @@
             </div>
           </div>
         </header>
-        
+        <div id="contenedorMenu">
         <main>
         
           <section class="py-5 text-center container">
@@ -57,10 +57,9 @@
             </div>
           </section>
         <div id="productosContainer"> 
-
-        </div>
-        <div id="carrito">
-          <button type="button" class="btn btn-dark" id="finalizar" onclick="location.href='carrito.html'">Ir al Carrito</button>
+          <div id="carrito">
+            <button type="button" class="btn btn-dark"  id="irCarrito">Ir al Carrito</button>
+          </div>
         </div>
         </main>
         
@@ -73,11 +72,134 @@
           </div>
 
         </footer>
-
-
+        </div>
+        <div id="contenedorCarrito">
+          <div class="tab-pane fade carrito" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" ></div><br>
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr class="text-primary">
+                <th scope="col">#</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              
+            
+              
+            </tbody>
+          </table>
+          <br><br>
+          <div class="row mx-4">
+            <div class="col">
+              <h3 class="itemCartTotal text-white">Total: 0</h3>
+            </div>
+            <div class="col d-flex justify-content-end">
+              <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                                data-target="#comprarModal">Comprar</button>
+            </div>
+          </div>
+            <div id="carrito">
+              <button type="button" class="btn btn-dark" id="irCarrito">Atrás</button>
+              <button type="button" class="btn btn-dark" id="irFormulario" >Siguiente</button>
+            </div>
+            <div
+            class="tab-pane fade carrito"
+            id="pills-contact"
+            role="tabpanel"
+            aria-labelledby="pills-contact-tab"
+          >
+        </div>
+          <br>
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr class="text-primary">
+                <th scope="col">#</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div id="contenedorFormulario">
+          <form class="row g-3 needs-validation was-validated" novalidate="">
+            <div class="col-md-4">
+              <label for="validationCustom01" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="validationCustom01"  required="">
+              <div class="valid-feedback">
+                valido.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" id="validationCustom02" required="">
+              <div class="valid-feedback">
+                Validos.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustomUsername" class="form-label">Correo Electronicos</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
+                <div class="invalid-feedback">
+                  Por favor verifica que este correcto.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label">Direccion</label>
+              <input type="text" class="form-control" id="validationCustom03" required="">
+              <div class="invalid-feedback">
+                Por favor verifica tu direccion.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom04" class="form-label">Municipio</label>
+              <select class="form-select" id="validationCustom04" required="">
+                <option selected disabled value="">Ninguna</option>
+                <option>Armenia</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor selecciona un municipio.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom05" class="form-label">Numero telefonico</label>
+              <input type="number" class="form-control" id="validationCustom05" required="">
+              <div class="invalid-feedback">
+                Por favor revisa que esten todos los numeros.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom05" class="form-label">Numero identidad</label>
+              <input type="number" class="form-control" id="validationCustom07" required="" placeholder="Cedula de ciudadania">
+              <div class="invalid-feedback">
+                Por favor revisa que esten todos los numeros.
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+                <label class="form-check-label" for="invalidCheck">
+                  Acepto terminos y condiciones
+                </label>
+              <div class="invalid-feedback">
+                  Debes Aceptar los terminos y condiciones.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-dark"  id="irCarrito2"">Atrás</button>
+              <button class="btn btn-primary" type="submit" id="finalizar" >Suguiente</button>
+            </div>
+          </form>
+        </div>
+        <script type="module" src="javascript/principal.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="javascript/productos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <iframe src="https://www.ciuvo.com/ciuvo/globalstorage?version=2.1.3" style="position: absolute; width: 1px; height: 1px; left: -9999px;"></iframe></body>
-</html>

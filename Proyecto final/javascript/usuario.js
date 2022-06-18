@@ -7,13 +7,9 @@
 //en el de productos generar las targetas de los productos 
 let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
 let usuarios = [];
-let button = document.getElementById("finalizar");
-button.onclick = function(event){
-    event.preventDefault()
-    alert("hola")
-    obtenerDatos();
-}
-function obtenerDatos(){
+//let button = document.getElementById("finalizar");
+
+ export function obtenerDatos(){
     let nombre = document.getElementById("validationCustom01").value;
     let apellido = document.getElementById("validationCustom02").value;
     let correo = document.getElementById("validationCustomUsername").value;
@@ -30,10 +26,10 @@ function obtenerDatos(){
         telefono : numTelefonico,
         documento: documento,
         };
-    usuarios.push(user);
-    enviarBaseDeDatos(user);
+        enviarBaseDeDatos(user);
+    return user;
 }
-function enviarBaseDeDatos(user){
+ function enviarBaseDeDatos(user){
     console.log("subiendo")
     fetch(url+"Compras",{
         method:'POST',
