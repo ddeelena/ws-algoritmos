@@ -12,22 +12,24 @@ let button = document.getElementById("finalizar");
 let irCarrito = document.getElementById("irCarrito");
 let irCarrito2 = document.getElementById("irCarrito2")
 let irFormulario = document.getElementById("irFormulario");
+
+//mostrar o no los html
 irFormulario.onclick = function(){
-    document.getElementById("contenedorFormulario").style.visibility = "hidden";
-    document.getElementById("contenedorFormulario").style.visibility ="visible"
+    document.getElementById("contenedorFormulario").style.display = "";
     document.getElementById("contenedorCarrito").style.display = "none";
     document.getElementById("contenedorMenu").style.display = "none";
 }
 irCarrito2.onclick = function(){
     document.getElementById("contenedorFormulario").style.display = "none";
-    document.getElementById("contenedorCarrito").style.visibility = "hidden";
-    document.getElementById("contenedorCarrito").style.visibility ="visible"
+    document.getElementById("contenedorCarrito").style.display = "";
     document.getElementById("contenedorMenu").style.display = "none";
 }
 irCarrito.onclick = function(){
-    document.getElementById("contenedorCarrito").style.visibility = "visible";
+    document.getElementById("contenedorCarrito").style.display = "";
     document.getElementById("contenedorMenu").style.display = "none";
 }
+
+// llamar funcion de añadir al carrito
 function añadirP(boton){
     console.log(boton)
     let produc = productos.find(producto => producto.id == boton)
@@ -36,6 +38,7 @@ function añadirP(boton){
     //total();
     //mostrarCarrito();
 }
+//Enviar datos a la api 
 button.onclick = function(event){
     event.preventDefault()
     let user = obtenerDatos()

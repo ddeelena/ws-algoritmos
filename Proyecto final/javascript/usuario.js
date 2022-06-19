@@ -6,7 +6,6 @@
 // en el del usuario obtner los datos de el formulario y hacer la factura importando datos del de productos
 //en el de productos generar las targetas de los productos 
 let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
-let usuarios = [];
 //let button = document.getElementById("finalizar");
 
  export function obtenerDatos(){
@@ -27,7 +26,7 @@ let usuarios = [];
         documento: documento,
         };
         enviarBaseDeDatos(user);
-    return user;
+         return user;
 }
  function enviarBaseDeDatos(user){
     console.log("subiendo")

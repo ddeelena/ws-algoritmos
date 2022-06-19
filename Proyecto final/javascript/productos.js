@@ -7,13 +7,20 @@
 let carrito =[];
 let productos = [];
 //let boton = document.getElementsByTagNameNS("btn btn-sm btn-outline-secondary","main");
+function añadirP(boton){
+  console.log(boton)
+  let produc = productos.find(producto => producto.id == boton)
+  carrito.push(produc);
+  console.log(carrito)
+  //total();
+  //mostrarCarrito();
+}
 
 
 
 
 
-
- export async function cargarinfo (){
+export async function cargarinfo (){
     let respuesta = await fetch ("https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/productos");
     return respuesta.json();
 }
@@ -58,10 +65,13 @@ function total(){
   let img= document.createElement("img");
   img.setAttribute("class","bd-placeholder-img card-img-top");
   img.setAttribute("class","img-fluid");
+  img.setAttribute("class","tamaño")
   img.setAttribute("src",`${producto.foto}`);
-  img.setAttribute("width","100%");
-  img.setAttribute("height","225");
+  //img.setAttribute("width","100%");
+  //img.setAttribute("height","425");
   img.setAttribute("alt","Eniun");
+  let cardimg = document.createElement("div")
+  cardimg.setAttribute("class","divImagen");
   let cardBody=document.createElement("div");
   cardBody.setAttribute("class","card-body");
   let cardText=document.createElement("p");

@@ -1,4 +1,5 @@
-
+import{cargarinfo} from "./productos.js";
+//import { obtenerDatos } from "./usuario.js";
 let boton = document.getElementById("confirmar");
 let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
 let agregarNuevo = document.getElementById("agregraNuevo");
@@ -10,25 +11,26 @@ let productos =[];
 let retroceder = document.getElementById("retroceder");
 let user = `dquejada1028@cue.edu.co`;
 let contra = `hola`;
-document.getElementById("agregarProducto").style.visibility = "hidden";
-document.getElementById("hacer").style.visibility="hidden";
-document.getElementById("mostrarProducto").style.visibility ="hidden";
+document.getElementById("agregarProducto").style.display = "none";
+document.getElementById("hacer").style.display="none";
+document.getElementById("mostrarProducto").style.display ="none";
 //document.getElementById("")
 conocerProducto.onclick = function(){
-    document.getElementById("mostrarProducto").style.visibility ="visible";
-    document.getElementById("hacer").style.visibility="hidden";
-    document.getElementById("agregarProducto").style.visibility = "hidden";
+    document.getElementById("mostrarProducto").style.display ="";
+    document.getElementById("hacer").style.display="none";
+    document.getElementById("agregarProducto").style.display = "none";
 }
-buscar.onclick = function(){
-    getProductos();
+buscar.onclick =  async function(){
+    productos = await cargarinfo();
+    mostrar();
 }
 retroceder.onclick = function(){
-    document.getElementById("hacer").style.visibility = "visible";
+    document.getElementById("hacer").style.display = "";
     document.getElementById("agregarProducto").style.display ="none";
 }
 productoNuevo.onclick = function(){
     crearCategoria();
-    añadirP();
+    añadirProducto();
 }
 boton.onclick = function(event){
     event.preventDefault();
@@ -36,14 +38,14 @@ boton.onclick = function(event){
 }
 agregarNuevo.onclick = function(event){
     event.preventDefault();
-    document.getElementById("hacer").style.visibility ="hidden";
-    document.getElementById("agregarProducto").style.visibility = "visible";
+    document.getElementById("hacer").style.display ="none";
+    document.getElementById("agregarProducto").style.display = "";
 }
  function mostrarOpciones(){
     let usuario = document.getElementById("floatingInput").value;
     let contraseña = document.getElementById("floatingPassword").value;
     if( usuario== user && contraseña==contra){
-        document.getElementById("hacer").style.visibility = "visible"; 
+        document.getElementById("hacer").style.display = ""; 
         document.getElementById("entrar").style.display = "none";
     }else alert ("no se pudo")
 
@@ -61,8 +63,8 @@ function crearCategoria(){
         opciones.appendChild()
     }
 }
-function añadirP(){
-    opcion = opciones.options[opciones.selectedIndex].text;
+function añadirProducto(){
+    let opcion = opciones.options[opciones.selectedIndex].text;
     let producto = (document.getElementById("producto")).value
     let precio = parseInt(document.getElementById("precio").value)
     let cantidad = parseInt(document.getElementById("cantidad").value)
@@ -91,7 +93,7 @@ function enviarBaseDeDatos(produTotal){
 }
 function mostrar(){
     let verProductos = document.getElementById("verProducto");
-    opcion = verProductos.options[verProductos.selectedIndex].text;
+    let opcion = verProductos.options[verProductos.selectedIndex].text;
     let producto = productos.find(produTotal=> produTotal.name == opcion);
     let div =  document.getElementById("container");
     console.log(producto);
@@ -105,13 +107,4 @@ function mostrar(){
     h3.innerHTML= cadena ;
     div.appendChild(h3);
 
-}
-async function cargarinfo (){
-    let respuesta = await fetch ("https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/productos");
-    return respuesta.json();
-}
-async function getProductos(){
-productos= await cargarinfo();
-console.log(productos);
-mostrar();
 }

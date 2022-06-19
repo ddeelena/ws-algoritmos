@@ -1,3 +1,11 @@
 .organizar{
     height: 100%;
+    text-size-adjust: auto;
 };
+.tamaño{
+    max-height: 200;
+    height: 100%;
+}
+.divImagen{
+    max-height: 200;
+}
