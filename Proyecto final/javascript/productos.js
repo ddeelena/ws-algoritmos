@@ -7,18 +7,14 @@
 let carrito =[];
 let productos = [];
 //let boton = document.getElementsByTagNameNS("btn btn-sm btn-outline-secondary","main");
-function añadirP(boton){
+function agregarP(boton){
   console.log(boton)
-  let produc = productos.find(producto => producto.id == boton)
+  let produc = productos.find(producto => producto.id == boton.id)
   carrito.push(produc);
   console.log(carrito)
-  //total();
-  //mostrarCarrito();
+  let cont = total();
+  mostrarCarrito(boton,cont);
 }
-
-
-
-
 
 export async function cargarinfo (){
     let respuesta = await fetch ("https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/productos");
@@ -37,10 +33,10 @@ function total(){
   let cont =0;
   carrito.forEach(categoria=>{
       productos.forEach(obj => {
-          obj.id == categoria ? cont+=(obj.precio) : cont+=0
+          obj.id == categoria.id ? cont+=(obj.precio) : cont+=0
       });
   })
-  //console.log(cont);
+  return cont;
 }
 
  export function mostrarProductos(){
@@ -65,13 +61,11 @@ function total(){
   let img= document.createElement("img");
   img.setAttribute("class","bd-placeholder-img card-img-top");
   img.setAttribute("class","img-fluid");
-  img.setAttribute("class","tamaño")
+  img.setAttribute("class","tamaño");
   img.setAttribute("src",`${producto.foto}`);
-  //img.setAttribute("width","100%");
+  img.setAttribute("width","100%");
   //img.setAttribute("height","425");
   img.setAttribute("alt","Eniun");
-  let cardimg = document.createElement("div")
-  cardimg.setAttribute("class","divImagen");
   let cardBody=document.createElement("div");
   cardBody.setAttribute("class","card-body");
   let cardText=document.createElement("p");
@@ -84,9 +78,10 @@ function total(){
   let button = document.createElement("button");
   button.type = "button";
   button.innerHTML = "Agregar"
-  button.setAttribute("class","btn btn-sm btn-outline-secondary");
+  button.setAttribute("class","btn btn-danger");
   button.setAttribute("id",producto.id);
-  button.setAttribute('onclick','añadirP("'+producto.id+'")');
+  //button.setAttribute('onclick','añadirP("'+producto.id+'")');
+  button.addEventListener("click",()=>{agregarP(producto)})
   contenedor.appendChild(div);
   div.appendChild(divCard); 
   divCard.appendChild(img);
@@ -113,25 +108,30 @@ function finalizarCompra(){
 
 
 
-function mostrarCarrito(){
-  //tbody.innerHTML=``;
-  let tbody = document.getElementById("tbody")
-   carrito.map(item =>{
-      let new_tr= document.createElement(`tr`)
-      new_tr.classList.add(`itemCart`)
-      let content = `
-      <th scope="row">1</th>
-      <td class="table__productos">
-        <img src=${item.foto}  alt="">
-        <h6 class="title">${item.name}</h6>
-      </td>
-      <td class="table__price"><p>${item.precio}</p></td>
-      <td class="table__cantidad">
-        <input type="number" min="1" value=${item.cantidad} class="input__elemento">
-        <button class="delete btn btn-danger">x</button>
-      </td>
-      
-      new_tr.innerHTML= content;
-      tbody.appendChild(new_tr);`
-  })
+export function mostrarCarrito(producto,cont){
+  let container = document.getElementById("añadidosCarrito");
+  let total = document.getElementById("total");
+  let div = document.createElement("div");
+  div.setAttribute("class", "item");
+  let img = document.createElement("img");
+  img.setAttribute("src", `${producto.foto}`);
+  //img.setAttribute("heigh", "100px")
+  let containerTextos =document.createElement("div");
+  containerTextos.setAttribute("class", "textos");
+  let p= document.createElement("p");
+  p.setAttribute("class","nombre-item")
+  p.innerHTML = producto.name;
+  let p2 = document.createElement("p");
+  p2.innerHTML = `El precio del producto es: ${producto.precio}`;
+  container.appendChild(div);
+  div.appendChild(img);
+  div.appendChild(containerTextos);
+  containerTextos.appendChild(p);
+  containerTextos.appendChild(p2);
+  while (total.firstChild) {
+    total.removeChild(total.firstChild);
+  }
+  let precioTotal = document.createElement("p");
+  precioTotal.innerHTML = `El total de la compra es: ${cont}`;
+  total.appendChild(precioTotal);
 }

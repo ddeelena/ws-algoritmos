@@ -1,6 +1,7 @@
 
 //import { cargarinfo } from "./productos.js";
-import{getProductos} from "./productos.js";
+
+import{getProductos, mostrarCarrito} from "./productos.js";
 import{obtenerDatos} from "./usuario.js";
 document.getElementById("contenedorCarrito").style.display = "none";
 document.getElementById("contenedorFormulario").style.display = "none";
@@ -12,8 +13,13 @@ let button = document.getElementById("finalizar");
 let irCarrito = document.getElementById("irCarrito");
 let irCarrito2 = document.getElementById("irCarrito2")
 let irFormulario = document.getElementById("irFormulario");
-
+let car = document.getElementById("compraAhora");
 //mostrar o no los html
+car.addEventListener("click",()=>{
+    document.getElementById("contenedorCarrito").style.display = "";
+    document.getElementById("contenedorMenu").style.display = "none";
+    //mostrarCarrito();
+});
 irFormulario.onclick = function(){
     document.getElementById("contenedorFormulario").style.display = "";
     document.getElementById("contenedorCarrito").style.display = "none";
@@ -27,17 +33,11 @@ irCarrito2.onclick = function(){
 irCarrito.onclick = function(){
     document.getElementById("contenedorCarrito").style.display = "";
     document.getElementById("contenedorMenu").style.display = "none";
+    //mostrarCarrito();
 }
 
 // llamar funcion de añadir al carrito
-function añadirP(boton){
-    console.log(boton)
-    let produc = productos.find(producto => producto.id == boton)
-    carrito.push(produc);
-    console.log(carrito)
-    //total();
-    //mostrarCarrito();
-}
+
 //Enviar datos a la api 
 button.onclick = function(event){
     event.preventDefault()

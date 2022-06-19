@@ -7,14 +7,27 @@ let conocer = document.getElementById("conocerProducto");
 let productoNuevo = document.getElementById("newProducto");
 let conocerProducto = document.getElementById("conocerProducto");
 let buscar = document.getElementById("buscar");
+let retroceder2 = document.getElementById("retroceder2");
 let productos =[];
 let retroceder = document.getElementById("retroceder");
 let user = `dquejada1028@cue.edu.co`;
 let contra = `hola`;
+let  modificar = document.getElementById("modificar");
+let modificando = document.getElementById("modificando");
 document.getElementById("agregarProducto").style.display = "none";
 document.getElementById("hacer").style.display="none";
 document.getElementById("mostrarProducto").style.display ="none";
+document.getElementById("modify").style.display ="none";
 //document.getElementById("")
+modificando.onclick = async function(){
+    productos = await cargarinfo();
+    console.log(productos);
+    modifyArray();
+}
+modificar.onclick =  function(){
+    document.getElementById("hacer").style.display ="none";
+    document.getElementById("modify").style.display = "";
+}
 conocerProducto.onclick = function(){
     document.getElementById("mostrarProducto").style.display ="";
     document.getElementById("hacer").style.display="none";
@@ -27,6 +40,10 @@ buscar.onclick =  async function(){
 retroceder.onclick = function(){
     document.getElementById("hacer").style.display = "";
     document.getElementById("agregarProducto").style.display ="none";
+}
+retroceder2.onclick = function(){
+    document.getElementById("hacer").style.display = "";
+    document.getElementById("mostrarProducto").style.display ="none";
 }
 productoNuevo.onclick = function(){
     crearCategoria();
@@ -106,5 +123,27 @@ function mostrar(){
     var h3 = document.createElement("h3");
     h3.innerHTML= cadena ;
     div.appendChild(h3);
-
 }
+function deleteProducto(id){
+    fetch(url+"productos/"+id,{
+        method:'DELETE'
+    })
+    .then(response=>response.json());
+} 
+function modifyArray(){
+    let productoAmodificar = document.getElementById("productoAmodificar").value;
+    console.log(productoAmodificar);
+    let buscado = productos.find(producto => producto.name == productoAmodificar)
+    deleteProducto(buscado.id);
+}
+    //buscar como poder modificar la api, sies mas facil borrar y luego re subir o cual es el metodo para 
+    //actualizar como funciona el put en la api y asi mismo hacer esa 
+    //en la de borrar mirar la funcion de la profesora 
+    //Con esta termianda solo faltaria la funcion de la factura tanto para mostrar la factura que seria 
+    // imprimir los datos del usuario y la list del carrito desde el principal, subir eso a la api a un nuevo 
+    //recurso y al llamar esa funcion invocada por el boton se imprima 
+    // hacer lo de restar cantidades en el objecto y asi mismo se debe actualizar en la api
+    // solo faltaria mejorar el dicho de impresion en el de conocer productos y los pequeños detalles de la interfez
+    // como el carrito alinear los items, definir si voy a usar el carrito en tabla o no y ya con eso acabo el proyecto
+    //meta acabar antes de domingo a las 6 pm 
+    // 5:05 am 

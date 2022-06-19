@@ -1,11 +1,66 @@
-.organizar{
+.organizar {
     height: 100%;
     text-size-adjust: auto;
-};
-.tamaño{
-    max-height: 200;
-    height: 100%;
 }
-.divImagen{
-    max-height: 200;
+.organizar img{
+    height: 200px;
+}
+.boton{
+    text-align: center;
+}
+#columna{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer{
+    background-color: black;
+}
+#carrito{
+    padding-bottom: 15px;
+}
+#carrito #irCarrito{
+    height: 80px;
+    width: 200px;
+}
+#modify{
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 100px 50px;
+}
+#car{
+    background-color:transparent;
+    border: none;
+}
+.col :hover{
+    color: rgb(200, 159, 238);
+}
+.pushbar .btn-cerrar .izquierda{
+    text-align: left;
+}
+.pushbar{
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+.pushbar .btn-cerrar.izquierda{
+    text-align: left;
+}
+.pushbar .btn-cerrar button{
+    background: none;
+    color: #808080;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.pushbar #compraAhora{
+    background: #808080;
+    border: none;
+}
+
+.item img{
+    width: 50%;
+    height: 20%;
+    max-height: 200px;
 }
