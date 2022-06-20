@@ -1,105 +1,65 @@
-import{cargarinfo} from "./productos.js";
-//import { obtenerDatos } from "./usuario.js";
-let boton = document.getElementById("confirmar");
 let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
-let agregarNuevo = document.getElementById("agregraNuevo");
-let conocer = document.getElementById("conocerProducto");
-let productoNuevo = document.getElementById("newProducto");
-let conocerProducto = document.getElementById("conocerProducto");
-let buscar = document.getElementById("buscar");
-let retroceder2 = document.getElementById("retroceder2");
-let productos =[];
-let retroceder = document.getElementById("retroceder");
 let user = `dquejada1028@cue.edu.co`;
 let contra = `hola`;
-let  modificar = document.getElementById("modificar");
-let modificando = document.getElementById("modificando");
-document.getElementById("agregarProducto").style.display = "none";
-document.getElementById("hacer").style.display="none";
-document.getElementById("mostrarProducto").style.display ="none";
-document.getElementById("modify").style.display ="none";
-//document.getElementById("")
-modificando.onclick = async function(){
-    productos = await cargarinfo();
-    console.log(productos);
-    modifyArray();
-}
-modificar.onclick =  function(){
-    document.getElementById("hacer").style.display ="none";
-    document.getElementById("modify").style.display = "";
-}
-conocerProducto.onclick = function(){
-    document.getElementById("mostrarProducto").style.display ="";
-    document.getElementById("hacer").style.display="none";
-    document.getElementById("agregarProducto").style.display = "none";
-}
-buscar.onclick =  async function(){
-    productos = await cargarinfo();
-    mostrar();
-}
-retroceder.onclick = function(){
-    document.getElementById("hacer").style.display = "";
-    document.getElementById("agregarProducto").style.display ="none";
-}
-retroceder2.onclick = function(){
-    document.getElementById("hacer").style.display = "";
-    document.getElementById("mostrarProducto").style.display ="none";
-}
-productoNuevo.onclick = function(){
-    crearCategoria();
-    añadirProducto();
-}
-boton.onclick = function(event){
-    event.preventDefault();
-    mostrarOpciones()
-}
-agregarNuevo.onclick = function(event){
-    event.preventDefault();
-    document.getElementById("hacer").style.display ="none";
-    document.getElementById("agregarProducto").style.display = "";
-}
- function mostrarOpciones(){
+export function mostrarOpciones(){
     let usuario = document.getElementById("floatingInput").value;
     let contraseña = document.getElementById("floatingPassword").value;
+try{
     if( usuario== user && contraseña==contra){
         document.getElementById("hacer").style.display = ""; 
         document.getElementById("entrar").style.display = "none";
-    }else alert ("no se pudo")
+    }else alert ("no se pudo iniciar sesion")
+}catch(error){
+    console.log(error)
+    alert("Lo sentimos hubo un error en el sistema intentelo más tarde");
+    let user = `dquejada1028@cue.edu.co`;
+    let contra = `hola`;
+    if( usuario== user && contraseña==contra){
+        document.getElementById("hacer").style.display = ""; 
+        document.getElementById("entrar").style.display = "none";
+    }else alert ("no se pudo iniciar sesion")
+}
 
  }
-function crearCategoria(){
-    let categoria = document.getElementById("categoria").value
-    const  selection = document.createElement("option");
-    if (categoria != null){
-        //categorias.push(categoria);
-        selection.innerHTML= categoria;
-        opciones.appendChild(selection);
-    }else{
-        categoria ="lapiz";
-        selection.innerHTML= categoria;
-        opciones.appendChild()
+ export function crearC(){
+    let categoria = document.getElementById("categoria1").value
+    let  selection = document.createElement("option");
+    try {
+        if (categoria != null & categoria != NaN & categoria !== ""){
+            selection.innerHTML= categoria;
+            opciones.appendChild(selection);
+        }else{
+            alert("Estas intentando crear una categoria invalida")
+        }
+    }catch(error){
+        console.log(error);
+        alert("Estas intentando crear una categoria invalida o hay un error al crear, intente de nuevo");
+            categoria = "NUEVA";
+            selection.innerHTML= categoria;
+            opciones.appendChild(selection);
     }
 }
-function añadirProducto(){
+ export function añadirProducto(){
+    let opciones = document.getElementById("opciones");
     let opcion = opciones.options[opciones.selectedIndex].text;
-    let producto = (document.getElementById("producto")).value
-    let precio = parseInt(document.getElementById("precio").value)
-    let cantidad = parseInt(document.getElementById("cantidad").value)
-    let foto = document.getElementById("foto").value;
-    let id = document.getElementById("id").value;
+    let producto = (document.getElementById("producto1")).value
+    let precio = parseInt(document.getElementById("precio1").value)
+    let cantidad = parseInt(document.getElementById("cantidad1").value)
+    let foto = document.getElementById("foto1").value;
+    let id = document.getElementById("id1").value;
+    console.log(id);
     let  produTotal ={
         "name":producto,
         "precio": precio,
         "cantidad": cantidad,
         "foto": foto,
+        "id": id,
         "categoria": opcion,
-        "id": id
     }
     console.log(produTotal)
     enviarBaseDeDatos(produTotal);
 }
 function enviarBaseDeDatos(produTotal){
-    console.log("subiendo")
     fetch(url+"productos",{
         method:'POST',
         body:JSON.stringify(produTotal),
@@ -107,12 +67,10 @@ function enviarBaseDeDatos(produTotal){
             "Content-type":"application/json"
         }
     })
+    alert("se creo con exito");
 }
-function mostrar(){
-    let verProductos = document.getElementById("verProducto");
-    let opcion = verProductos.options[verProductos.selectedIndex].text;
-    let producto = productos.find(produTotal=> produTotal.name == opcion);
-    let div =  document.getElementById("container");
+export function mostrar(producto,container){
+    let div =  document.getElementById(container);
     console.log(producto);
     let cadena = `
     Categoria: ${producto.categoria}<br>
@@ -124,21 +82,71 @@ function mostrar(){
     h3.innerHTML= cadena ;
     div.appendChild(h3);
 }
-function deleteProducto(id){
+ export function deleteProducto(id){
     fetch(url+"productos/"+id,{
         method:'DELETE'
     })
     .then(response=>response.json());
+    alert(`Se ha eliminado ${id} con exito`)
 } 
-function modifyArray(){
+ export function actuality (id,product){
+    fetch(url+"productos/"+id,{
+        method:'PUT',
+        body:JSON.stringify(product),
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
+    .then(response=>response.json());
+    console.log("actualizando");
+    
+}
+ export function modifyArray(){
     let productoAmodificar = document.getElementById("productoAmodificar").value;
     console.log(productoAmodificar);
-    let buscado = productos.find(producto => producto.name == productoAmodificar)
-    deleteProducto(buscado.id);
+     buscado = productos.find(producto => producto.id == productoAmodificar)
+    console.log(buscado);
+    //mostrar(buscado, "imprimir");
+    modificarDatos(buscado);
+    
+    //deleteProducto(buscado.id);
 }
-    //buscar como poder modificar la api, sies mas facil borrar y luego re subir o cual es el metodo para 
-    //actualizar como funciona el put en la api y asi mismo hacer esa 
-    //en la de borrar mirar la funcion de la profesora 
+function modificarDatos(producto){
+    let datosModify = document.getElementById("datosModify");
+    for( let  i in  producto){
+    let div = document.createElement("div");
+    div.setAttribute("class","form-group col-md-6")
+    let label = document.createElement("label");
+    label.innerHTML= `- ${i} :`;
+    let input = document.createElement("input");
+    input.setAttribute("id",i);
+    input.setAttribute("value", producto[i])
+    div.appendChild(label);
+    div.appendChild(input);
+    datosModify.appendChild(div);
+  }
+}
+ export function obtenerDatos(){
+    let categoria = (document.getElementById("categoria")).value;
+    let producto = (document.getElementById("name")).value;
+    let precio = parseInt(document.getElementById("precio").value);
+    let cantidad = parseInt(document.getElementById("cantidad").value);
+    let foto = document.getElementById("foto").value;
+    let id = document.getElementById("id").value;
+    console.log(categoria);
+    console.log(id);
+    let  product ={
+        "name":producto,
+        "precio": precio,
+        "cantidad": cantidad,
+        "foto": foto,
+        "categoria": categoria,
+        "id": id,
+    }
+    console.log(product);
+    return product;
+}
+
     //Con esta termianda solo faltaria la funcion de la factura tanto para mostrar la factura que seria 
     // imprimir los datos del usuario y la list del carrito desde el principal, subir eso a la api a un nuevo 
     //recurso y al llamar esa funcion invocada por el boton se imprima 

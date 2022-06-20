@@ -45,11 +45,11 @@
             <div class="form-floating mb-3">
                 <br><br><br>
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <label for="floatingInput">Correo Electronico</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">Contraseña</label>
               </div>
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3" id="confirmar">Confirmar identidad</button>
@@ -60,12 +60,13 @@
           <button type="button" id="conocerProducto">Conocer un Producto</button>
           <button type="button" id="modificar">Cambiar un producto</button>
           <button type="button" id="conocerPedidos"> Conocer pedidos</button>
+          <button type="button" id="borrarProducto">Eliminar un producto del inventario</button>
         </div>
         <div id="agregarProducto">
           <h3>Ingresa el nombre de la categoria</h3><br>
           <div class="categoria">
               <label for="tipoProducto">Categoría:</label>
-              <input type="text" id="categoria"placeholder="ingrese el nombre de la categoria">
+              <input type="text" id="categoria1"placeholder="ingrese el nombre de la categoria">
               <button id="crearCategoria">CREAR</button><br><br>
           </div>
           <h4>Ingresa los datos del producto</h4><br>
@@ -73,18 +74,18 @@
               <label for="categoria">Escoja la categoria</label>
               <select name="categoria" id="opciones" >
                 <option value="1">lapiz</option>
-                <option value="2">lapiceros</option>
+                <option value="2">escribir</option>
               </select><br><br>
               <label for="produtos">Ingrese el nombre del producto</label>
-              <input type="text" name="productos" id="producto" ><br><br>
+              <input type="text" name="productos" id="producto1" ><br><br>
               <label for="precio">Ingrese el precio del producto</label>
-              <input type="text" name="precio" id="precio" ><br><br>
+              <input type="text" name="precio" id="precio1" ><br><br>
               <label for="cantidad">Ingrese cuanta cantidad  hay del producto</label>
-              <input type="number" name="cantidad" id="cantidad" ><br><br>
+              <input type="number" name="cantidad" id="cantidad1" ><br><br>
               <label for="cantidad">Ingrese la direccion de la imagen</label>
-              <input type="text" name="foto" id="foto" ><br><br>
+              <input type="text" name="foto" id="foto1" ><br><br>
               <label for="cantidad">Ingrese el identificador del producto</label>
-              <input type="text" name="id" id="id" ><br><br>
+              <input type="text" name="id" id="id1" ><br><br>
               <div class="botones">
                   <button id="retroceder">Anterior</button>
                   <button id="newProducto" >Agregar producto</button>
@@ -116,11 +117,33 @@
         </div>
         </div>
         <div id="modify">
-          
-          <label for="modifyProduct">Que producto deseas modificar</label><br>
-          <input id="productoAmodificar"class="form-control" type="text" placeholder="nombre" aria-label="default input example">
-          <button id="modificando">Buscar</button>
+          <div class="buttonOpciones">
+            <label for="modifyProduct">Que producto deseas modificar</label>
+            <input id="productoAmodificar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
+            <button id="modificando">Buscar</button><br>
+          </div>
+          <div id="datosModify">
+
+          </div><br><br>
+          <div class="buttonOpciones bot">
+            <button id="retroceder3">Anterior</button><br>
+            <button id="onmodify">Modificar</button><br>
+          </div>
         </div>
-        <script  type ="module" src="javascript/administrador.js" ></script>
+        <div id="eliminar">
+          <div class="buttonOpciones">
+            <label for="form-control">Que producto deseas eliminar</label>
+            <input id="productoBorrar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
+            <button id="borrando">Ver</button><br>
+          </div>
+          <div id="imprimir">
+
+          </div><br><br>
+          <div class="buttonOpciones bot">
+            <button id="retroceder4">Anterior</button><br>
+            <button id="oneliminate">Eliminar</button><br>
+          </div>
+        </div>
+        <script  type ="module" src="javascript/moduloAdmi.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
