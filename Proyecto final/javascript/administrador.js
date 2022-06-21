@@ -146,12 +146,3 @@ function modificarDatos(producto){
     console.log(product);
     return product;
 }
-
-    //Con esta termianda solo faltaria la funcion de la factura tanto para mostrar la factura que seria 
-    // imprimir los datos del usuario y la list del carrito desde el principal, subir eso a la api a un nuevo 
-    //recurso y al llamar esa funcion invocada por el boton se imprima 
-    // hacer lo de restar cantidades en el objecto y asi mismo se debe actualizar en la api
-    // solo faltaria mejorar el dicho de impresion en el de conocer productos y los pequeños detalles de la interfez
-    // como el carrito alinear los items, definir si voy a usar el carrito en tabla o no y ya con eso acabo el proyecto
-    //meta acabar antes de domingo a las 6 pm 
-    // 5:05 am 

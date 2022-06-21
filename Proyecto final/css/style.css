@@ -1,3 +1,4 @@
+
 .organizar {
     height: 100%;
     text-size-adjust: auto;
@@ -74,15 +75,93 @@ footer{
     font-size: 20px;
 }
 .pushbar #compraAhora{
-    background: #808080;
+    background: #da6666;
     border: none;
 }
-
+p{
+    font-size: 25px;
+}
+.item{
+    font-size: 25px;
+}
 .item img{
     width: 50%;
     height: 20%;
     max-height: 200px;
 }
+.contenedorMayor{
+    position: relative;
+}
 #contenedorFactura{
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-left: 30%;
+    max-width: 50%;
+    background-color: beige;
     border: solid 3px  #0f0d10;
+    align-content: center;
+}
+#contenedorFormulario{
+    padding: 30px;
+}
+#hacer button {
+    width: 300px;
+    background-color: #da6666;
+    display: block;
+    flex-direction: row;
+    margin-bottom: 10%;
+}
+#hacer{
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-left: 40% ;
+    justify-content: center;
+    align-content:center;
+}
+#agregarProducto{
+    width: 600px;
+    height: 600px;
+    border: solid 5px #0f0d10;
+    margin-top: 10%;
+    margin-left: 35% ;
+    padding: 1%;
+    justify-content: center;
+    align-content:center;
+}
+@media  screen and (max-width: 1000px){
+    header{
+        width: 100%;
+    }
+    #hacer {
+        width: 400px;
+        height: 400px;
+        margin-left:30%;
+    }
+}
+@media  screen and (max-width: 400px){
+    header{
+        width: 100%;
+    }
+    #hacer {
+        width: 200px;
+        height: 200px;
+        margin-left:15%;
+    }
+}
+@media  screen and (min-width: 400px){
+    header{
+        width: 100%;
+    }
+    #hacer {
+        width: 200px;
+        height: 200px;
+        margin-left:30%;
+    }
 }

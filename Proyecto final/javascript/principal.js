@@ -12,7 +12,7 @@ let button = document.getElementById("finalizar");
 let irCarrito = document.getElementById("irCarrito");
 let irCarrito2 = document.getElementById("irCarrito2")
 let car = document.getElementById("compraAhora");
-let finalizarCompra = document.getElementById("compraFinalizada");
+let finalizarCompra = document.getElementById("compraFinalizada"); 
 //mostrar o no los html
 finalizarCompra.addEventListener("click",()=>{
     document.getElementById("contenedorFormulario").style.display = "none";
