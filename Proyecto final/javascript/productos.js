@@ -8,8 +8,12 @@ function agregarP(boton){
     container.removeChild(container.firstChild);
   }
   let produc = productos.find(producto => producto.id == boton.id)
+  let producC = carrito.includes(produc);
+  console.log(producC);
   produc.cantidad = 1;
-  carrito.push(produc);
+  if(producC == false){
+    carrito.push(produc);
+  }
   let cont = total();
   mostrarCarrito(cont);
 }
@@ -19,9 +23,7 @@ function aumentarP(producto){
   carrito[elementIndex]["cantidad"] += 1;
   let cont = total();
   let container = document.getElementById("añadidosCarrito");
-  while(container.firstChild){
-    container.removeChild(container.firstChild);
-  }
+  borrarHijos()
   mostrarCarrito(cont);
 }}
 function disminuirP(producto){
@@ -130,7 +132,7 @@ export function total(){
   cardBody.setAttribute("class","card-body");
   let cardText=document.createElement("p");
   cardText.setAttribute("class","card-text");
-  cardText.innerHTML=`${producto.name}- ${producto.precio}`;
+  cardText.innerHTML=`${producto.name}<br>${producto.descripcion}<br> Precio: ${producto.precio}`;
   let containerbutton = document.createElement("div");
   containerbutton.setAttribute("class","d-flex justify-content-between align-items-center");
   let contenederboton = document.createElement("div");
@@ -160,6 +162,7 @@ export function mostrarCarrito(cont){
       let div = document.createElement("div");
       div.setAttribute("class", "item");
       div.setAttribute("id",producto.id);
+      div.innerHTML="<br>";
       let img = document.createElement("img");
       img.setAttribute("src", `${producto.foto}`);
       let containerTextos =document.createElement("div");

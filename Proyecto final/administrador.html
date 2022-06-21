@@ -31,7 +31,7 @@
                           Administrador
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                          <li><a class="dropdown-item" href="administrador.html">INICIAR SESION</a></li>
+                          <li><a class="dropdown-item" href="index.html">CERRAR SESION</a></li>
                         </ul>
                       </li>
                     </ul>
@@ -41,107 +41,97 @@
             </div>
           </div>
         </header>
-        <form class="row g-3" id="entrar">
-            <div class="form-floating mb-3">
-                <br><br><br>
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Correo Electronico</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Contraseña</label>
+        <div id="bodyAdministrador">
+          <form class="row g-3" id="entrar">
+              <div class="form-floating mb-3">
+                  <br><br><br>
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Correo Electronico</label>
               </div>
-            <div class="col-auto">
-              <button type="submit" class="btn btn-primary mb-3" id="confirmar">Confirmar identidad</button>
-            </div>
-        </form>
-        <div id="hacer">
-          <button  type="button" id="agregraNuevo">Click si desea añadir un nuevo  producto al inventario</button>
-          <button type="button" id="conocerProducto">Click si desea conocer datos de un producto del inventario</button>
-          <button type="button" id="modificar">Click si desea cambiar  caracteristicas de un producto</button>
-          <button type="button" id="borrarProducto">Eliminar un producto del inventario</button>
-          <a href="index.html">CERRAR SESIÓN</a>
-        </div>
-        <div id="agregarProducto">
-          <h3>Ingresa el nombre de la categoria</h3><br>
-          <div class="categoria">
-              <label for="tipoProducto">Categoría:</label>
-              <input type="text" id="categoria1"placeholder="ingrese el nombre de la categoria">
-              <button id="crearCategoria">CREAR</button><br><br>
-          </div>
-          <h4>Ingresa los datos del producto</h4><br>
-          <div class="producto">
-              <label for="categoria">Escoja la categoria</label>
-              <select name="categoria" id="opciones" >
-                <option value="1">lapiz</option>
-                <option value="2">escribir</option>
-              </select><br><br>
-              <label for="produtos">Ingrese el nombre del producto</label>
-              <input type="text" name="productos" id="producto1" ><br><br>
-              <label for="precio">Ingrese el precio del producto</label>
-              <input type="text" name="precio" id="precio1" ><br><br>
-              <label for="cantidad">Ingrese cuanta cantidad  hay del producto</label>
-              <input type="number" name="cantidad" id="cantidad1" ><br><br>
-              <label for="cantidad">Ingrese la direccion de la imagen</label>
-              <input type="text" name="foto" id="foto1" ><br><br>
-              <label for="cantidad">Ingrese el identificador del producto</label>
-              <input type="text" name="id" id="id1" ><br><br>
-              <div class="botones">
-                  <button id="retroceder">Anterior</button>
-                  <button id="newProducto" >Agregar producto</button>
+              <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <label for="floatingPassword">Contraseña</label>
+                </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" id="confirmar">Confirmar identidad</button>
               </div>
+          </form>
+          <div id="hacer">
+            <p>Estas son las opciones que tienes para realizar con respecto a tus productos: </p>
+            <button  type="button" id="agregraNuevo">Click si desea añadir un nuevo  producto al inventario</button>
+            <button type="button" id="conocerProducto">Click si desea conocer datos de un producto del inventario</button>
+            <button type="button" id="modificar">Click si desea cambiar  caracteristicas de un producto</button>
+            <button type="button" id="borrarProducto">Eliminar un producto del inventario</button>
           </div>
-        </div>
-        <div id="mostrarProducto">
-          <select name="productos" id="verProducto">
-          <optgroup label="escribir">
-            <option value="lapiz">lapiz</option>
-            <option value="lapicero">lapicero</option>
-            <option value="cajalapicero">caja lapiceros</option>
-            <option value="colores">colores</option>
-            <option value="lapiceroffi">Lapicero Morado</option>
-            <option value="lapicerofaber">Lapicero Rosado</option>
-            <option value="borrador">Borrador</option>
-          </optgroup>
-          <optgroup label="papel">
-            <option value="foami">Foami</option>
-            <option value="cartulina">Cartulina</option>
-            <option value="cartulinaP">Pliego Cartulina</option>
-            <option value="carton">Caja</option>
-          </optgroup>
-        </select>
-        <button id="retroceder2">Anterior</button>
-        <button id="buscar">Buscar</button>
-        <div id="container">
+          <div id="agregarProducto">
+            <h3>Ingresa el nombre de la categoria nueva</h3><br>
+            <div class="categoria">
+                <label for="tipoProducto">Categoría:</label>
+                <input type="text" id="categoria1"placeholder="ingrese el nombre de la categoria">
+                <button id="crearCategoria">CREAR</button><br><br>
+            </div>
+            <h4>Ingresa los datos del producto</h4><br>
+            <div class="producto">
+                <label for="categoria">Escoja la categoria</label>
+                <select name="categoria" id="opciones" >
+                  <option value="1">lapiz</option>
+                  <option value="2">escribir</option>
+                </select><br><br>
+                <label for="produtos">Ingrese el nombre del producto</label>
+                <input type="text" name="productos" id="producto1" ><br><br>
+                <label for="precio">Ingrese el precio del producto</label>
+                <input type="text" name="precio" id="precio1" ><br><br>
+                <label for="cantidad">Ingrese cuanta cantidad  hay del producto</label>
+                <input type="number" name="cantidad" id="cantidad1" ><br><br>
+                <label for="cantidad">Ingrese la direccion de la imagen</label>
+                <input type="text" name="foto" id="foto1" ><br><br>
+                <label for="cantidad">Ingrese el identificador del producto</label>
+                <input type="text" name="id" id="id1" ><br><br>
+                <label for="cantidad">Ingrese la descripcion del producto</label>
+                <input type="text" name="id" id="descripcion" ><br><br>
+                <div class="botones">
+                    <button id="retroceder">Anterior</button>
+                    <button id="newProducto" >Agregar producto</button>
+                </div>
+            </div>
+          </div>
+          <div id="mostrarProducto">
+            <select name="productos" id="verProducto">
 
-        </div>
-        </div>
-        <div id="modify">
-          <div class="buttonOpciones">
-            <label for="modifyProduct">Que producto deseas modificar</label>
-            <input id="productoAmodificar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
-            <button id="modificando">Buscar</button><br>
-          </div>
-          <div id="datosModify">
+          </select>
+          <button id="retroceder2">Anterior</button>
+          <button id="buscar">Buscar</button>
+          <div id="container">
 
-          </div><br><br>
-          <div class="buttonOpciones bot">
-            <button id="retroceder3">Anterior</button><br>
-            <button id="onmodify">Modificar</button><br>
           </div>
-        </div>
-        <div id="eliminar">
-          <div class="buttonOpciones">
-            <label for="form-control">Que producto deseas eliminar</label>
-            <input id="productoBorrar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
-            <button id="borrando">Ver</button><br>
           </div>
-          <div id="imprimir">
+          <div id="modify">
+            <div class="buttonOpciones">
+              <label for="modifyProduct">Que producto deseas modificar</label>
+              <input id="productoAmodificar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
+              <button id="modificando">Buscar</button><br>
+            </div>
+            <div id="datosModify">
 
-          </div><br><br>
-          <div class="buttonOpciones bot">
-            <button id="retroceder4">Anterior</button><br>
-            <button id="oneliminate">Eliminar</button><br>
+            </div><br><br>
+            <div class="buttonOpciones bot">
+              <button id="retroceder3">Anterior</button><br>
+              <button id="onmodify">Modificar</button><br>
+            </div>
+          </div>
+          <div id="eliminar">
+            <div class="buttonOpciones">
+              <label for="form-control">Que producto deseas eliminar</label>
+              <input id="productoBorrar"class="form-control" type="text" placeholder="nombre" aria-label="default input example"><br>
+              <button id="borrando">Ver</button><br>
+            </div>
+            <div id="imprimir">
+
+            </div><br><br>
+            <div class="buttonOpciones bot">
+              <button id="retroceder4">Anterior</button><br>
+              <button id="oneliminate">Eliminar</button><br>
+            </div>
           </div>
         </div>
         <script  type ="module" src="javascript/moduloAdmi.js" ></script>

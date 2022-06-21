@@ -47,6 +47,7 @@ try{
     let cantidad = parseInt(document.getElementById("cantidad1").value)
     let foto = document.getElementById("foto1").value;
     let id = document.getElementById("id1").value;
+    let descripcion = document.getElementById("descripcion").value
     console.log(id);
     let  produTotal ={
         "name":producto,
@@ -55,6 +56,7 @@ try{
         "foto": foto,
         "id": id,
         "categoria": opcion,
+        "descripicion": descripcion
     }
     console.log(produTotal)
     enviarBaseDeDatos(produTotal);
@@ -69,15 +71,22 @@ function enviarBaseDeDatos(produTotal){
     })
     alert("se creo con exito");
 }
+function borrarHijos(contenedor){
+    while(contenedor.firstChild){
+        contenedor.removeChild(contenedor.firstChild);
+      }
+} 
 export function mostrar(producto,container){
     let div =  document.getElementById(container);
+    borrarHijos(div);
     console.log(producto);
     let cadena = `
     Categoria: ${producto.categoria}<br>
     Nombre: ${producto.name}<br>
     Precio: ${producto.precio}<br>
     Cantidad existente: ${producto.cantidad}<br>
-    Id: ${producto.id}`;
+    Id: ${producto.id}<br>
+    Descripcion: ${producto.descripcion}`;
     var h3 = document.createElement("h3");
     h3.innerHTML= cadena ;
     div.appendChild(h3);
@@ -101,10 +110,10 @@ export function mostrar(producto,container){
     console.log("actualizando");
     
 }
- export function modifyArray(){
-    let productoAmodificar = document.getElementById("productoAmodificar").value;
+ export async function modifyArray(productos){
+    let productoAmodificar = (document.getElementById("productoAmodificar").value);
     console.log(productoAmodificar);
-     buscado = productos.find(producto => producto.id == productoAmodificar)
+     let buscado = productos.find(producto => producto.name == productoAmodificar)
     console.log(buscado);
     //mostrar(buscado, "imprimir");
     modificarDatos(buscado);
@@ -113,9 +122,10 @@ export function mostrar(producto,container){
 }
 function modificarDatos(producto){
     let datosModify = document.getElementById("datosModify");
+    borrarHijos(datosModify);
     for( let  i in  producto){
     let div = document.createElement("div");
-    div.setAttribute("class","form-group col-md-6")
+    div.setAttribute("class","form-group col-md-6 inpus");
     let label = document.createElement("label");
     label.innerHTML= `- ${i} :`;
     let input = document.createElement("input");
@@ -127,7 +137,7 @@ function modificarDatos(producto){
   }
 }
  export function obtenerDatos(){
-    let categoria = (document.getElementById("categoria")).value;
+    let categoria = (document.getElementById("categoria").value);
     let producto = (document.getElementById("name")).value;
     let precio = parseInt(document.getElementById("precio").value);
     let cantidad = parseInt(document.getElementById("cantidad").value);
@@ -145,4 +155,12 @@ function modificarDatos(producto){
     }
     console.log(product);
     return product;
+}
+ export function opcionesConocer(productos){
+    let verProducto = document.getElementById("verProducto");
+    productos.forEach(element => {
+        let opcion = document.createElement("option");
+        opcion.innerHTML= element.name;
+        verProducto.appendChild(opcion);
+    });
 }

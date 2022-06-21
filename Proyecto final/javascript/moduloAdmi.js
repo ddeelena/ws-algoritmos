@@ -5,7 +5,7 @@ document.getElementById("mostrarProducto").style.display ="none";
 document.getElementById("modify").style.display ="none";
 document.getElementById("eliminar").style.display ="none";
 import {mostrarOpciones, mostrar, actuality, modifyArray, obtenerDatos, deleteProducto,crearC} from "./administrador.js"
-import {añadirProducto} from "./administrador.js"
+import {añadirProducto, opcionesConocer} from "./administrador.js"
 import{cargarinfo} from "./productos.js";
 let boton = document.getElementById("confirmar");
 let url = 'https://629faf37461f8173e4ef06a4.mockapi.io/api/v1/';
@@ -17,6 +17,7 @@ let productoNuevo = document.getElementById("newProducto");
 let conocerProducto = document.getElementById("conocerProducto");
 let buscar = document.getElementById("buscar");
 let retroceder2 = document.getElementById("retroceder2");
+let retroceder4 = document.getElementById("retroceder4");
 let borrando = document.getElementById("borrando");
 let productos =[];
 let retroceder = document.getElementById("retroceder");
@@ -51,31 +52,32 @@ borrando.onclick = async  function(){
         mostrar(producto,"imprimir");
     }
 }
-retroceder3.onclick = function(){
+retroceder4.onclick = function(){
     document.getElementById("hacer").style.display ="";
     document.getElementById("eliminar").style.display = "none";
 }
 buttonModify.addEventListener("click", ()=>{
-    let product = obtenerDatos()
-    actuality(buscado.id, product);
+    let product = obtenerDatos();
+    actuality(product.id, product);
 })
 //document.getElementById("")
 modificando.onclick = async function(){
     productos = await cargarinfo();
     console.log(productos);
-    modifyArray();
+    modifyArray(productos);
 }
 modificar.onclick =  function(){
     document.getElementById("hacer").style.display ="none";
     document.getElementById("modify").style.display = "";
 }
-conocerProducto.onclick = function(){
+conocerProducto.onclick =  async function(){
     document.getElementById("mostrarProducto").style.display ="";
     document.getElementById("hacer").style.display="none";
     document.getElementById("agregarProducto").style.display = "none";
+    productos = await cargarinfo();
+    opcionesConocer(productos);
 }
 buscar.onclick =  async function(){
-    productos = await cargarinfo();
     let verProductos = document.getElementById("verProducto");
     let opcion = verProductos.options[verProductos.selectedIndex].text;
     console.log(opcion)
