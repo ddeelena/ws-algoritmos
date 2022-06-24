@@ -141,7 +141,8 @@ p{
     height: 30%;
 }
 #hacer button {
-    margin-left: 45%;
+    font-weight: 900;
+    margin-left: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
